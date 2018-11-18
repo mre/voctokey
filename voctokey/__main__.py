@@ -3,6 +3,7 @@ import anyconfig
 import sys
 
 from voctokey.config import load_config
+from voctokey.tcp import TcpClient
 
 
 def get_config():
@@ -13,6 +14,16 @@ def get_config():
         sys.exit(1)
 
 
+def try_send(client, command):
+    """
+    Try to send a msessage via TCP and prints a human readable message
+    """
+    try:
+        client.send(command.encode('ascii'))
+    except Exception as e:
+        print(e)
+
+
 def main():
     config = get_config()
     print(config)
@@ -20,14 +31,10 @@ def main():
     # Print all inputs. Good for debugging
     keyboard.hook(print)
 
-    keyboard.add_hotkey(config["hotkeys"]["camera1"],
-                        print, args=('camera', '1'))
-    keyboard.add_hotkey(config["hotkeys"]["camera2"],
-                        print, args=('camera', '2'))
-    keyboard.add_hotkey(config["hotkeys"]["camera3"],
-                        print, args=('camera', '3'))
-    keyboard.add_hotkey(config["hotkeys"]["camera4"],
-                        print, args=('camera', '4'))
+    print(config["hotkeys"])
+    client = TcpClient(config["server"]["ip"], config["server"]["port"])
+    for hotkey, command in config["hotkeys"].items():
+        keyboard.add_hotkey(hotkey, try_send, args=(client, command))
     keyboard.wait()
 
 

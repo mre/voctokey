@@ -1,4 +1,5 @@
 import anyconfig
+import toml
 import platform
 from pathlib import Path
 
@@ -12,4 +13,4 @@ def get_config_dir():
 
 def load_config():
     config_dir = get_config_dir()
-    return anyconfig.load(config_dir / "Config.ini")
+    return anyconfig.load(config_dir / "Config.toml")

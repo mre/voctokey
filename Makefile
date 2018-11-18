@@ -2,6 +2,10 @@
 install:
 	python3 setup.py install
 
+.PHONY: server
+server:
+	pipenv run python -m mock_server
+
 .PHONY: deps
 deps:
 	pipenv install
