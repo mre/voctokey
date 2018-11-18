@@ -6,7 +6,7 @@ from pathlib import Path
 def get_config_dir():
     system = platform.system()
     if system == "Darwin":
-        return Path(".local/share/voctokey")
+        return Path.home() / Path(".local/share/voctokey")
     raise NotImplementedError
 
 
