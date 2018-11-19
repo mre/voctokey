@@ -12,6 +12,7 @@ twine = "*"
 keyboard = "*"
 anyconfig = "*"
 toml = "*"
+appdirs = "*"
 
 [requires]
 python_version = "3.6"

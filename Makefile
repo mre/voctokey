@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 
 .PHONY: install
-install: ## Install the current version voctokey on your machine
+install: ## Install the current version voctokey on your machine (might need sudo)
 	python3 setup.py install
 
 .PHONY: publish
