@@ -1,6 +1,9 @@
 # voctokey
 
-Control [voctomix] via keyboard shortcuts.
+Control [voctomix] via keyboard shortcuts.  
+It connects to the [TCP server of voctocore](https://github.com/voc/voctomix/tree/master/voctocore#example-communication).
+It can run as a daemon and listen for keyboard inputs in the background.
+Should work cross-platform on Linux/Windows/macOS.
 
 ## Requirements
 
@@ -8,7 +11,35 @@ On macOS, you have to [allow the app to control the computer](https://www.mactra
 
 ## Installation
 
-Nobody knows yet
+```
+pip install voctokey
+```
+
+## Configuration
+
+`voctokey` can be configured dynamically with a config file.  
+
+Here is a sample config:
+
+```toml
+[server]
+ip = "127.0.0.1"
+port = "9999"
+
+[hotkeys]
+"command+h" = "help"
+"command+j"= "set_video_a cam1"
+"command+k"= "set_composite_mode side_by_side_equal"
+"command+l"= "get_video"
+```
+
+The server config is pointing to the voctocore TCP server.  
+See the [`keyboard` documentation](https://github.com/boppreh/keyboard) for a list of hotkeys.
+The commands are sent verbatim over the wire and the result is printed to `stdout`.
+
+## Development
+
+Run `make help` to see the available commands.
 
 
 [voctomix]: https://github.com/voc/voctomix
