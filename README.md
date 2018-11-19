@@ -21,9 +21,9 @@ pip install voctokey
 
 The path to the config file is as follows (see [docs](https://github.com/ActiveState/appdirs)):
 
-* Linux: `/home/username/.local/share/voctokey`
-* macOS: `/Users/username/Library/Application Support/voctokey`
-* Windows: `C:\\Users\\username\\AppData\\Local\\mre\\voctokey`
+* Linux: `/home/username/.local/share/voctokey/Config.toml`
+* macOS: `/Users/username/Library/Application Support/voctokey/Config.toml`
+* Windows: `C:\\Users\\username\\AppData\\Local\\mre\\voctokey/Config.toml`
 
 Here is a sample config:
 
