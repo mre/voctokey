@@ -1,5 +1,7 @@
 # voctokey
 
+![CI](https://github.com/mre/voctokey/workflows/Python%20application/badge.svg)
+
 Control [voctomix] via keyboard shortcuts.  
 It connects to the [TCP server of voctocore](https://github.com/voc/voctomix/tree/master/voctocore#example-communication).
 It can run as a daemon and listen for keyboard inputs in the background.
