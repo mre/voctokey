@@ -1,6 +1,13 @@
 name: Python application
 
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+  schedule:
+    # Runs every Thursday at 20:23 GMT to avoid bit rot
+    - cron: "20 23 * * 4"
 
 jobs:
   build:
